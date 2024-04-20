@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Boredom-slayer</title>
+  <script src="//cdn.tailwindcss.com"></script>
+  <script>    
+    window.thingsToDoWhenBored = [
+      "Read a book.",
+      "Make a website (haha ironic).",
+      "Sit down and conversate.",
+      "Listen to music.",
+      "Draw something.",
+      "Tidy up.",
+      "Cook something new.",
+      "Go for a walk.",
+      "Surf the internet for something new.",
+      "Do something you haven't done before.",
+      "Play a game.",
+      "Think of moments in life where you really enjoyed yourself.",
+      "Do some work.",
+      "Relax yourself.",
+      "Go outside and enjoy some fresh air.",
+      "Remember the people who you care about.",
+      "Code.",
+      "Think about how you can improve."
+    ]
+
+    function getRandomDifferent(arr, last = undefined) {
+      if (arr.length === 0) {
+        return null;
+      } else if (arr.length === 1) {
+        return arr[0];
+      } else {
+        let num = 0;
+        do {
+          num = Math.floor(Math.random() * arr.length);
+        } while (arr[num] === last);
+        return arr[num];
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-slate-700 text-white">
+  <div id="navbar" style="
+    top: 0;
+    background: linear-gradient(to right, #7289da, lightpink);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    font-weight: bold;
+  ">
+    <h1>Boredom<sup>slayer</sup></h1>
+  </div>
+  
+  <div id="content" style="
+    text-align:center;
+
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+  ">
+    <h1 style="
+      font-weight: bold;
+      text-size: 42px;
+    ">You ever felt bored and wanted something to do?</h1>
+    <span>That's a reason I felt like making this website! Welcome Boredom<sup>inc</sup>!</span>
+    <br><br><br>
+    <div
+    class="response"
+    onclick="
+      let thing = getRandomDifferent(window.thingsToDoWhenBored, this.children[0].innerText)
+
+      this.children[0].innerText = '🤔'
+
+      setTimeout(() => {
+        this.children[0].innerText = thing
+      }, 512.5)
+    "
+    style="
+      background-color: #fff;
+      border-radius: 9999px;
+      color: black;
+      width: 75%;
+      height: 50px;
+      display: flex;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+    ">
+      <span style="
+        color: grey;
+      ">
+        Click me to generate thing to do!
+      </span>
+    </div>
+
+    <br><br>
+    
+    
+
+</body>
+
+</html>
